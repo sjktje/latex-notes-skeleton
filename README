@@ -1,0 +1,6 @@
+$ git clone path/to/latex-notes-skeleton.git <class name>
+$ cd <class name>
+
+I tend to create one seperate file per lecture, e.g. Anatomy01.tex, Anatomy02.tex etc 
+and then include all those in main.tex. 
+
