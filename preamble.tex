@@ -1,0 +1,63 @@
+\documentclass[twocolumn,landscape]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Pagestyle stuff
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\usepackage[paperheight=8.5in,%
+			paperwidth=11in,%
+			outer=.9in,%
+			inner=.9in,%
+			bottom=.7in,%
+			top=.7in,%
+			includeheadfoot]{geometry}
+\columnsep 3em
+\setlength{\headwidth}{9.2in}
+\fancyhead[R]{\thepage}
+\fancyhead[L]{\sectionname}
+\setlength{\headheight}{15.8pt}
+\raggedbottom
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc} % For Swedish letters, etc.
+\usepackage[swedish]{babel} % For Swedish avstavning. Heh.
+\usepackage{amsmath}		% For symbols
+\usepackage{amsthm}			% For theorems
+\usepackage{amssymb}		% More symbols
+\usepackage[colorlinks,%
+			linkcolor=black,%
+			pagebackref,%
+			bookmarksnumbered=true]{hyperref}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\sektion}[2]{\stepcounter{section} \renewcommand{\thesection}{#1} \newpage\section{#2} \gdef\sectionname{#1\quad #2, v.~rsinfomonth-rsinfoday}}
+\newcommand{\sektion}[2]{\stepcounter{section} \renewcommand{\thesection}{#1} \newpage\section{#2} \gdef\sectionname{#1\quad #2}}
+\newcommand{\subsektion}[1]{\subsection*{#1} \addcontentsline{toc}{subsection}{#1}}
+\newcommand\sectionname{}
+
+% I use this to mark out that I didn't understand, etc.
+\newcommand{\sjk}[1]{[[\ensuremath{\bigstar\bigstar\bigstar} #1]]} 
+
+\theoremstyle{plain}
+\newtheorem{remark}{Anm.}
+
+\renewcommand{\labelitemi}{--} % Changes the default bullet style in itemize
+
+\makeatletter
+\newenvironment{exercise}[1][]{\begin{trivlist}%
+  \item{\bf Övning\@ifnotempty{#1}{ #1}: }\it}{\end{trivlist}}
+\newenvironment{solution}{\begin{trivlist}%
+  \item{\it Lösning: }}{\end{trivlist}}
+\newenvironment{question}[1][]{\begin{trivlist}%
+  \item{\bf Fråga\@ifnotempty{#1}{ #1}: }\it}{\end{trivlist}}
+\newenvironment{answer}[1][]{\begin{trivlist}%
+  \item{\it Svar: }}{\end{trivlist}}
+\makeatother
