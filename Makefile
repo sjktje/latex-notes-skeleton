@@ -4,6 +4,9 @@ all: main.pdf
 clean: 
 	rm -f *.log *.aux *.aux2 *.toc *.out *.blg *.bbl *.brf
 
+distclean: clean
+	rm -f *.pdf
+
 %.pdf: main.tex $(wildcard *.tex) $(wildcard *.bib)
 	pdflatex $< </dev/null ||:
 #	bibtex $(patsubst %.tex,%,$<)
@@ -12,5 +15,5 @@ clean:
 		pdflatex $< </dev/null ||: ; \
 	done
 	rm -f *.log *.aux2
-viewpdf:
+viewpdf: main.pdf
 	open main.pdf
