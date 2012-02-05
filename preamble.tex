@@ -64,7 +64,22 @@
   \item{\it Svar: }}{\end{trivlist}}
 \newenvironment{definition}[1][]{\begin{trivlist}%
   \item{\bf Definition\@ifnotempty{#1}{ #1}: }\it}{\end{trivlist}}
+\newenvironment{warning}[1][]{%
+  \begin{trivlist} \item[] \noindent%
+  \begingroup\hangindent=2pc\hangafter=-2
+  \clubpenalty=10000%
+  \hbox to0pt{\hskip-\hangindent\manfntsymbol{127}\hfill}\ignorespaces
+  \refstepcounter{equation}\textbf{Warning~\theequation}%
+  \@ifnotempty{#1}{\the\thm@notefont \ (#1)}\textbf{.}
+  \let\p@@r=\par \def\p@r{\p@@r \hangindent=0pc} \let\par=\p@r}
+  {\hspace*{\fill}$\lrcorner$\endgraf\endgroup\end{trivlist}}
 \makeatother
 
 \newenvironment{que}{\question}{\endquestion}
 \newenvironment{ans}{\answer}{\endanswer}
+
+% The following is for the warning sign.
+\DeclareFontFamily{U}{manual}{}
+\DeclareFontShape{U}{manual}{m}{n}{ <-> manfnt }{}
+\newcommand{\manfntsymbol}[1]{%
+    {\fontencoding{U}\fontfamily{manual}\selectfont\symbol{#1}}}
