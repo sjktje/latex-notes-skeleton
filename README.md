@@ -17,6 +17,15 @@ just add:
 
 At the appropriate spot in your main.tex.
 
+## Localisation
+
+Swedish hyphenation is used by default. If writing in English, you may want to
+tell babel about it. Do so by commenting out the current babel line in
+`preamble.tex` and adding one appropriate for your language, e.g.:
+
+    %\usepackage[swedish]{babel}
+    \usepackage[british]{babel}
+
 ## Compiling the document
 
 Assuming you are using Mac OS X or some other Makefile-aware operating system,
