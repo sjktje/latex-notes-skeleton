@@ -1,6 +1,6 @@
 # Skeleton for lecture note taking in LaTeX
 
-To get up and running, do the following. <class name> could be 'anatomy,' for
+To get up and running, do the following. `<class name>` could be 'anatomy,' for
 example.
 
     $ git clone http://github.com/sjktje/latex-notes-skeleton.git <class name>
