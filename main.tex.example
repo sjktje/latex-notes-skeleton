@@ -8,8 +8,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\input{lecture01}
 %\input{lecture02}
-%... 
+%...
 
-\bibliography{biblio}{}
-\bibliographystyle{apacite}
+%\bibliography{biblio}{}
+%\bibliographystyle{apacite}
+
 \end{document}
