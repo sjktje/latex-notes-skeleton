@@ -21,6 +21,10 @@
 \setlength{\headheight}{15.8pt}
 \raggedbottom
 
+% Do not enumerate section. This is like using \section*{} except sections
+% still turn up in the table of contents.
+\setcounter{secnumdepth}{0}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Packages
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -41,6 +45,7 @@
 %%%% Macros
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\newcommand{\sektion}[2]{\stepcounter{section} \renewcommand{\thesection}{#1} \newpage\section{#2} \gdef\sectionname{#1\quad #2, v.~rsinfomonth-rsinfoday}}
+% Obsolete commands, just use \section and \subsection as normal.
 \newcommand{\sektion}[2]{\stepcounter{section} \renewcommand{\thesection}{#1} \newpage\section{#2} \gdef\sectionname{#1\quad #2}}
 \newcommand{\subsektion}[1]{\subsection*{#1} \addcontentsline{toc}{subsection}{#1}}
 \newcommand\sectionname{}
