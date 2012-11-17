@@ -1,7 +1,7 @@
 
 all: main.pdf
 
-clean: 
+clean:
 	rm -f *.log *.aux *.aux2 *.toc *.out *.blg *.bbl *.brf
 
 distclean: clean
