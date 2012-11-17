@@ -40,3 +40,9 @@ viewpdf target in the Makefile.
 
 If you need bibliography support, enter your bibtex items into `biblio.bib`
 and uncomment the bibtex line in `Makefile`.
+
+## Resources
+
+ * [Anton Geraschenko's advice on real-time TeXing](http://stacky.net/wiki/index.php?title=Advice_on_real-time_TeXing).
+   Anton's website has also got a section where he provides notes from various
+   courses.
