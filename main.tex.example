@@ -6,11 +6,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Add your notes files here
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\input{lecture01}
-%\input{lecture02}
-%...
 
-%\bibliography{biblio}{}
-%\bibliographystyle{apacite}
+%%%% START INPUTS %%%%
+
+%\input{2013-02-11a}
+%\input{2013-02-11b}
+
+%%%% END INPUTS %%%%
+
+\printbibliography[heading=bibintoc]
 
 \end{document}

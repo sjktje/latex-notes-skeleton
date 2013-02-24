@@ -37,9 +37,18 @@
 \usepackage[version=3]{mhchem}  % For chemical formulas
 \usepackage[colorlinks,%
             linkcolor=black,%
-            pagebackref,%
             bookmarksnumbered=true]{hyperref}
+\usepackage{csquotes}           % Required by biblatex
+\usepackage[sorting=nyt,style=apa,backend=biber]{biblatex}
 
+\DeclareLanguageMapping{swedish}{swedish-apa}
+
+\DefineBibliographyStrings{swedish}{
+    references = {Referenser},
+    bibliography={Referenser},
+}
+
+\addbibresource{biblio.bib}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Macros
