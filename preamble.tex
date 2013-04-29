@@ -37,8 +37,10 @@
 \usepackage[version=3]{mhchem}  % For chemical formulas
 \usepackage[colorlinks,%
             linkcolor=black,%
-            bookmarksnumbered=true]{hyperref}
-\usepackage{csquotes}           % Required by biblatex
+            %pagebackref,%
+            bookmarksnumbered=true,%
+            linktoc=all]{hyperref}
+\usepackage{csquotes}
 \usepackage[sorting=nyt,style=apa,backend=biber]{biblatex}
 
 \DeclareLanguageMapping{swedish}{swedish-apa}
@@ -48,7 +50,34 @@
     bibliography={Referenser},
 }
 
+% APA säger att en url-referens ska se ut t.ex så här:
+%
+% Vetenskapsrådet. (2011). Samlingen av regler och riktlinjer för forskning.
+% Hämtad 9 november 2012, från CODEX: http://www.codex.vr.se/
+%
+% Skolans apa tycker dock att kolonet efter CODEX istället ska vara ett komma.
+% Därför beövs hela harangen här nedan.
+\renewbibmacro*{url+urldate}{%
+    \ifthenelse{\(\iffieldundef{url}\AND\iffieldundef{abstracturl}\)\OR\NOT\iffieldundef{doi}}
+      {}
+      {\iffieldundef{abstracturl}
+        {}
+        {\printtext{\bibcpstring{abstract}}\addspace}%
+        \printtext{\bibstring{retrieved}}%
+       \setunit{\addspace}%
+       \iffieldundef{urlyear}
+         {}
+         {\printurldate%
+          \setunit*{\addcomma\addspace}}%
+       \printtext{\bibstring{from}}%
+       \setunit*{\addspace}%
+       \printfield{urldescription}%
+       \setunit*{\addcomma\addspace}%
+       \iffieldundef{url}{}{\printfield{url}\renewcommand*{\finentrypunct}{\relax}}%
+       \iffieldundef{abstracturl}{}{\printfield{abstracturl}\renewcommand*{\finentrypunct}{\relax}}}}
+
 \addbibresource{biblio.bib}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Macros
