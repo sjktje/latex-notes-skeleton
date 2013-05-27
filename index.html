@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Latex-notes-skeleton by sjktje</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Latex-notes-skeleton</h1>
+        <h2>LaTeX skeleton for my lecture note taking</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/sjktje/latex-notes-skeleton/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/sjktje/latex-notes-skeleton/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/sjktje/latex-notes-skeleton" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>Skeleton for lecture note taking in LaTeX</h1>
+
+<p>To get up and running, do the following. <code>&lt;class name&gt;</code> could be 'anatomy,' for
+example.</p>
+
+<pre><code>$ git clone http://github.com/sjktje/latex-notes-skeleton.git &lt;class name&gt;
+$ cd &lt;class name&gt;
+$ git checkout -b &lt;class name&gt;
+$ vim YYYY-MM-DDa.tex
+</code></pre>
+
+<p>Creating a new branch (with name ) is optional but recommended as
+it simplifies pulling preamble updates etc from this repository.</p>
+
+<p><code>YYYY-MM-DDa.tex</code> contains your lecture notes. If you are attending several
+lectures that day, you would name the files <code>YYYY-MM-DD{a,b}.tex</code> and so forth.</p>
+
+<p>When done, don't forget to include the file in <code>main.tex</code>. Doing so is easy,
+just add:</p>
+
+<pre><code>\input{YYYY-MM-DDa.tex}
+</code></pre>
+
+<p>At the appropriate spot in your main.tex.</p>
+
+<h2>Localisation</h2>
+
+<p>Swedish hyphenation is used by default. If writing in English, you may want to
+tell babel about it. Do so by commenting out the current babel line in
+<code>preamble.tex</code> and adding one appropriate for your language, e.g.:</p>
+
+<pre><code>%\usepackage[swedish]{babel}
+\usepackage[british]{babel}
+</code></pre>
+
+<h2>Compiling the document</h2>
+
+<p>Assuming you are using Mac OS X or some other Makefile-aware operating system,
+just use make:</p>
+
+<pre><code>$ make viewpdf
+</code></pre>
+
+<p>If you are using Linux or FreeBSD or similar, you will have to edit the
+viewpdf target in the Makefile.</p>
+
+<h2>Using a bibliography</h2>
+
+<p>If you need bibliography support, enter your biblatex items into <code>biblio.bib</code>
+and uncomment the biber line in <code>Makefile</code>.</p>
+
+<h2>Resources</h2>
+
+<ul>
+<li>
+<a href="http://stacky.net/wiki/index.php?title=Advice_on_real-time_TeXing">Anton Geraschenko's advice on real-time TeXing</a>.
+Anton's website has also got a section where he provides notes from various
+courses.</li>
+</ul>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
