@@ -91,37 +91,30 @@
 \newcommand{\sjk}[1]{[[\ensuremath{\bigstar\bigstar\bigstar} #1]]}
 
 \theoremstyle{plain}
-\newtheorem{remark}{Anm.}
 \newtheorem{patientfall}{Patientfall}
 
 \renewcommand{\labelitemi}{--} % Changes the default bullet style in itemize
 
 \makeatletter
+
 \newenvironment{exercise}[1][]{\begin{trivlist}%
-  \item{\bf Övning\@ifnotempty{#1}{ #1}: }\it}{\end{trivlist}}
+  \item{\bf \iflanguage{swedish}{Övning}{Exercise}\@ifnotempty{#1}{ #1}: }\it}{\end{trivlist}}
 \newenvironment{solution}{\begin{trivlist}%
-  \item{\it Lösning: }}{\end{trivlist}}
+  \item{\it \iflanguage{swedish}{Lösning}{Solution} }}{\end{trivlist}}
 \newenvironment{question}[1][]{\begin{trivlist}%
-  \item{\bf Fråga\@ifnotempty{#1}{ #1}: }\it}{\end{trivlist}}
+  \item{\bf \iflanguage{swedish}{Fråga}{Question}\@ifnotempty{#1}{ #1}: }\it}{\end{trivlist}}
 \newenvironment{answer}[1][]{\begin{trivlist}%
-  \item{\it Svar: }}{\end{trivlist}}
-\newenvironment{definition}[1][]{\begin{trivlist}%
-  \item{\bf Definition\@ifnotempty{#1}{ #1}: }\it}{\end{trivlist}}
-\newenvironment{case}[1][]{\begin{trivlist}%
-    \item{\bf Patientfall\@ifnotempty{#1}{ #1}: }\it}{\end{trivlist}}
+  \item{\it \iflanguage{swedish}{Svar}{Answer} }}{\end{trivlist}}
+
 \newenvironment{warning}[1][]{%
   \begin{trivlist} \item[] \noindent%
   \begingroup\hangindent=2pc\hangafter=-2
   \clubpenalty=10000%
   \hbox to0pt{\hskip-\hangindent\manfntsymbol{127}\hfill}\ignorespaces
-  \refstepcounter{equation}\textbf{Varning~\theequation}%
+  \refstepcounter{equation}\textbf{\iflanguage{swedish}{Varning}{Warning}~\theequation}%
   \@ifnotempty{#1}{\the\thm@notefont \ (#1)}\textbf{.}
   \let\p@@r=\par \def\p@r{\p@@r \hangindent=0pc} \let\par=\p@r}
   {\hspace*{\fill}$\lrcorner$\endgraf\endgroup\end{trivlist}}
-\makeatother
-
-\newenvironment{que}{\question}{\endquestion}
-\newenvironment{ans}{\answer}{\endanswer}
 
 % The following is for the warning sign.
 \DeclareFontFamily{U}{manual}{}
@@ -129,11 +122,27 @@
 \newcommand{\manfntsymbol}[1]{%
     {\fontencoding{U}\fontfamily{manual}\selectfont\symbol{#1}}}
 
+\def\newprooflikeenvironment#1#2#3#4{%
+  \newenvironment{#1}[1][]{%
+      \refstepcounter{equation}
+      \begin{proof}[{\rm\csname#4\endcsname{#2~\theequation}%
+      \@ifnotempty{##1}{\the\thm@notefont \ (##1)}\csname#4\endcsname{.}}]
+      \def\qedsymbol{#3}}%
+     {\end{proof}}}
+\makeatother
+
+\newprooflikeenvironment{example}{\iflanguage{swedish}{Exempel}{Example}}{$\diamond$}{textbf}
+\newprooflikeenvironment{definition}{Definition}{$\diamond$}{textbf}
+\newprooflikeenvironment{remark}{\iflanguage{swedish}{Anmärkning}{Remark}}{$\diamond$}{textbf}
+
+\newenvironment{que}{\question}{\endquestion}
+\newenvironment{ans}{\answer}{\endanswer}
+
 \newcommand{\lecturerinfo}[4]{%
     \begin{description}[style=multiline,leftmargin=2cm]
-        \ifthenelse{\isempty{#1}}{}{\item[Namn:] #1}
-        \ifthenelse{\isempty{#2}}{}{\item[E-post:] \href{mailto:#2}{#2}}
-        \ifthenelse{\isempty{#3}}{}{\item[Telefon:] #3}
-        \ifthenelse{\isempty{#4}}{}{\item[Annat:] #4}
+        \ifthenelse{\isempty{#1}}{}{\item[\iflanguage{swedish}{Namn}{Name}:] #1}
+        \ifthenelse{\isempty{#2}}{}{\item[\iflanguage{swedish}{E-post}{E-mail}:] \href{mailto:#2}{#2}}
+        \ifthenelse{\isempty{#3}}{}{\item[\iflanguage{swedish}{Telefon}{Telephone}:] #3}
+        \ifthenelse{\isempty{#4}}{}{\item[\iflanguage{swedish}{Annat}{Other}:] #4}
     \end{description}
 }
