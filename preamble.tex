@@ -95,6 +95,12 @@
 
 \renewcommand{\labelitemi}{--} % Changes the default bullet style in itemize
 
+% Fix marginpars
+\setlength{\marginparwidth}{0.75in}
+\let\oldmarginpar\marginpar
+\renewcommand\marginpar[1]{\-\oldmarginpar[\raggedleft\footnotesize #1]%
+{\raggedright\footnotesize #1}}
+
 \makeatletter
 
 \newenvironment{exercise}[1][]{\begin{trivlist}%
