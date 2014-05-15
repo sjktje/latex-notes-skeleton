@@ -5,10 +5,11 @@ example.
 
     $ git clone http://github.com/sjktje/latex-notes-skeleton.git <class name>
     $ cd <class name>
-    $ git checkout -b <class name>
+    $ git branch -m skeleton
+    $ git checkout -b master
     $ vim YYYY-MM-DDa.tex
 
-Creating a new branch (with name <class name>) is optional but recommended as
+Creating a new master branch is optional but recommended as
 it simplifies pulling preamble updates etc from this repository.
 
 `YYYY-MM-DDa.tex` contains your lecture notes. If you are attending several
